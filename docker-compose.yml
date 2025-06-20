@@ -4,8 +4,8 @@ services:
   phalcon-app:
     build: .
     container_name: phalcon4-project-aurora
-    # ports:
-    #   - "8080:80"
+    ports:
+      - "8080:80"
     # extra_hosts:
     #   - "auroraphp.dev:127.0.0.1"
     volumes:
@@ -16,7 +16,8 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
     networks:
-      - lokal
+      lokal:
+        ipv4_address: 172.19.0.12
 
 networks:
   lokal:
